@@ -21,6 +21,12 @@ const mesAtual = Number(partes.month);
 
 const soma = (xs) => Math.round(xs.reduce((a, b) => a + b, 0) * 100) / 100;
 const ehCpf = (doc) => !doc || doc.includes("*") || doc.replace(/\D/g, "").length === 11;
+// Empresas individuais (MEI) costumam levar o nome do dono: só mostra o nome se parecer razão social.
+const RAZAO_SOCIAL = /\b(LTDA|S\.?\/?A|EIRELI|EPP|CIA|COMPANHIA|COM[EÉ]RCIO|SERVI[CÇ]OS?|POSTO|HOTEL|IND[UÚ]STRIA|EMPRESA|ASSOCIA[CÇ][AÃ]O|CONDOM[IÍ]NIO|TELECOM|IMOBILI[AÁ]RIA|CONSULTORIA|PARTICIPA[CÇ](OES|ÕES)|GRUPO|BANCO|RESTAURANTE|LOCADORA|TRANSPORTES?|DISTRIBUIDORA|EDITORA|GR[AÁ]FICA|TECNOLOGIA|AG[EÊ]NCIA|TURISMO|FARM[AÁ]CIA|SUPERMERCADO|LOJAS?)\b/i;
+function nomeFornecedor(doc, nome) {
+  if (ehCpf(doc)) return "Pessoa física";
+  return RAZAO_SOCIAL.test(nome || "") ? tituloCaso(nome) : "Empresa individual (nome omitido)";
+}
 const tituloCaso = (s) =>
   s.toLowerCase()
     .replace(/\b(ltda|me|epp|eireli|s\/?a)\b\.?/g, "")
@@ -82,7 +88,7 @@ async function senado(ano) {
       const [, mm, dd] = (d.data || "").split("-");
       return {
         descricao: `${dd}/${mm} · ${passagem ? `Passagem aérea, ${d.fornecedor}` : cat}`,
-        detalhe: passagem ? passageiro(d.detalhamento) : ehCpf(d.cpfCnpj) ? "Pessoa física" : tituloCaso(d.fornecedor),
+        detalhe: passagem ? passageiro(d.detalhamento) : nomeFornecedor(d.cpfCnpj, d.fornecedor),
         valor: d.valorReembolsado,
       };
     });
@@ -109,8 +115,7 @@ function detalhePortal(sigiloso, doc, fav) {
   if (sigiloso) return "Portador e favorecido sob sigilo";
   if (/^SEM INFORMA/i.test(fav)) return "Favorecido sem informação";
   if (/^NAO SE APLICA/i.test(fav)) return "Favorecido: não se aplica";
-  if (ehCpf(doc)) return "Pessoa física";
-  return tituloCaso(fav);
+  return nomeFornecedor(doc, fav);
 }
 
 const espera = (ms) => new Promise((r) => setTimeout(r, ms));

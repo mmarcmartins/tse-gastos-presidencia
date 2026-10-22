@@ -44,13 +44,7 @@ O workflow [`.github/workflows/pages.yml`](.github/workflows/pages.yml) faz tudo
 3. gera a página com Pug;
 4. publica no GitHub Pages.
 
-Ele roda:
-
-- a cada push no `main`;
-- todo dia às 8h de Brasília, até 26/10/2026;
-- manualmente, por `workflow_dispatch`.
-
-O Portal da Transparência bloqueia (403/405) muitos downloads seguidos. Por isso cada execução baixa no máximo 18 meses novos e para no primeiro bloqueio, e a execução seguinte continua de onde parou. Um ano fechado só aparece quando os 12 meses estão baixados.
+Ele roda todo dia às 8h de Brasília, até 26/10/2026.
 
 ## Rodar localmente
 

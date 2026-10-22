@@ -13,7 +13,7 @@
           },
           {
             "descricao": "26/05 · Aluguel e despesas do escritório",
-            "detalhe": "Vinicius Ferreira Paixão",
+            "detalhe": "Empresa individual (nome omitido)",
             "valor": 5300
           },
           {
@@ -873,62 +873,62 @@
         "top": [
           {
             "descricao": "Presidência da República",
-            "sigiloso": true,
             "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
             "valor": 10128956.87
           },
           {
             "descricao": "Gabinete da Vice-Presidência",
-            "sigiloso": true,
             "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
             "valor": 122406.3
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Auto Posto Parque Villa Lobos",
+            "sigiloso": false,
             "valor": 20075.67
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 19191.76
           },
           {
             "descricao": "Imprensa Nacional",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 10458.82
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 10090.75
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 9705.47
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Auto Posto Hygienopolis",
+            "sigiloso": false,
             "valor": 8935.23
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 8475.36
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Favorecido: não se aplica",
+            "sigiloso": false,
             "valor": 8000
           }
         ],
@@ -966,9 +966,120 @@
             "valor": 1664953.87
           }
         ]
+      },
+      "jair": {
+        "ano_mandato": 2022,
+        "ate": "ago/2022",
+        "completo": false,
+        "sigiloso_presidencia": 15559286.79,
+        "sigiloso_vice": 1013664.68,
+        "total": 16735698.47,
+        "top": [
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
+            "valor": 15559286.79
+          },
+          {
+            "descricao": "Gabinete da Vice-Presidência",
+            "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
+            "valor": 1013664.68
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Auto Posto Estoril",
+            "sigiloso": false,
+            "valor": 13017.43
+          },
+          {
+            "descricao": "EBC",
+            "detalhe": "Favorecido: não se aplica",
+            "sigiloso": false,
+            "valor": 8994.8
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Rede de Postos Auto Posto Center",
+            "sigiloso": false,
+            "valor": 7245.96
+          },
+          {
+            "descricao": "EBC",
+            "detalhe": "Associacao Fundo de Incentivo A Pesquisa",
+            "sigiloso": false,
+            "valor": 6660
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Auto Posto Parque Villa Lobos",
+            "sigiloso": false,
+            "valor": 6034.68
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Rede de Postos Auto Posto Center",
+            "sigiloso": false,
+            "valor": 5700.07
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Auto Posto Bandeira Paulista",
+            "sigiloso": false,
+            "valor": 5431.52
+          },
+          {
+            "descricao": "Imprensa Nacional",
+            "detalhe": "Pessoa física",
+            "sigiloso": false,
+            "valor": 5355
+          }
+        ],
+        "meses": [
+          {
+            "mes": "jan",
+            "valor": 2009923.46
+          },
+          {
+            "mes": "fev",
+            "valor": 1160071.41
+          },
+          {
+            "mes": "mar",
+            "valor": 1809521.57
+          },
+          {
+            "mes": "abr",
+            "valor": 2231029.63
+          },
+          {
+            "mes": "mai",
+            "valor": 2273996.53
+          },
+          {
+            "mes": "jun",
+            "valor": 2473270.57
+          },
+          {
+            "mes": "jul",
+            "valor": 2643596.56
+          },
+          {
+            "mes": "ago",
+            "valor": 2134288.74
+          }
+        ]
       }
     }
   },
-  "atualizado_em": "21/10/2026, 23h35",
-  "erros": []
+  "atualizado_em": "22/10/2026, 00h06",
+  "erros": [
+    "Portal 2025: 1 de 12 meses baixados até agora; continua na próxima execução",
+    "Portal 2021: nenhum mês disponível (Portal bloqueou downloads nesta execução)",
+    "Portal 2024: nenhum mês disponível (Portal bloqueou downloads nesta execução)",
+    "Portal 2020: nenhum mês disponível (Portal bloqueou downloads nesta execução)",
+    "Portal 2023: nenhum mês disponível (Portal bloqueou downloads nesta execução)",
+    "Portal 2019: nenhum mês disponível (Portal bloqueou downloads nesta execução)"
+  ]
 }

@@ -135,62 +135,62 @@
         "top": [
           {
             "descricao": "Presidência da República",
-            "sigiloso": true,
             "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
             "valor": 23581978.7
           },
           {
             "descricao": "Gabinete da Vice-Presidência",
-            "sigiloso": true,
             "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
             "valor": 482495.53
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 20125.41
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Auto Posto Hygienopolis",
+            "sigiloso": false,
             "valor": 13406.05
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 13241.64
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Auto Posto Parque Villa Lobos",
+            "sigiloso": false,
             "valor": 10800.51
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 10197.07
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 10099.13
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Auto Posto Grana",
+            "sigiloso": false,
             "valor": 9609.22
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 7880.01
           }
         ],
@@ -1313,9 +1313,8 @@
       }
     }
   },
-  "atualizado_em": "22/10/2026, 00h14",
+  "atualizado_em": "22/10/2026, 00h17",
   "erros": [
-    "Portal 2023: 4 de 12 meses baixados até agora; continua na próxima execução",
-    "Portal 2019: nenhum mês disponível (Portal bloqueou downloads nesta execução)"
+    "Portal 2019: 9 de 12 meses baixados até agora; continua na próxima execução"
   ]
 }

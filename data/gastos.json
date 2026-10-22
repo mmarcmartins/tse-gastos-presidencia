@@ -744,6 +744,126 @@
             "valor": 3206313.12
           }
         ]
+      },
+      "jair": {
+        "ano_mandato": 2021,
+        "ate": "dez/2021",
+        "completo": true,
+        "sigiloso_presidencia": 18894115.68,
+        "sigiloso_vice": 996176.79,
+        "total": 20076780.37,
+        "top": [
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
+            "valor": 18894115.68
+          },
+          {
+            "descricao": "Gabinete da Vice-Presidência",
+            "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
+            "valor": 996176.79
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Auto Posto Parque Villa Lobos",
+            "sigiloso": false,
+            "valor": 15677.51
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Auto Posto Estonia 3",
+            "sigiloso": false,
+            "valor": 11568.66
+          },
+          {
+            "descricao": "EBC",
+            "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
+            "valor": 11485.02
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Paygo Administradora de Meios de Pagamentos",
+            "sigiloso": false,
+            "valor": 9998
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Wenceslau - Abastecedora de Combustiveis",
+            "sigiloso": false,
+            "valor": 8322.46
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Wenceslau - Abastecedora de Combustiveis",
+            "sigiloso": false,
+            "valor": 6666.74
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Auto Posto Bandeira Paulista",
+            "sigiloso": false,
+            "valor": 5103.09
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Favorecido: não se aplica",
+            "sigiloso": false,
+            "valor": 4120
+          }
+        ],
+        "meses": [
+          {
+            "mes": "jan",
+            "valor": 1703542.29
+          },
+          {
+            "mes": "fev",
+            "valor": 1511879.76
+          },
+          {
+            "mes": "mar",
+            "valor": 1780891.89
+          },
+          {
+            "mes": "abr",
+            "valor": 1069409.03
+          },
+          {
+            "mes": "mai",
+            "valor": 1006600.22
+          },
+          {
+            "mes": "jun",
+            "valor": 1209178.9
+          },
+          {
+            "mes": "jul",
+            "valor": 2242043.24
+          },
+          {
+            "mes": "ago",
+            "valor": 1081731.44
+          },
+          {
+            "mes": "set",
+            "valor": 1814965.59
+          },
+          {
+            "mes": "out",
+            "valor": 1870253.95
+          },
+          {
+            "mes": "nov",
+            "valor": 2262160.94
+          },
+          {
+            "mes": "dez",
+            "valor": 2524123.12
+          }
+        ]
       }
     },
     "2026": {
@@ -1073,10 +1193,9 @@
       }
     }
   },
-  "atualizado_em": "22/10/2026, 00h09",
+  "atualizado_em": "22/10/2026, 00h11",
   "erros": [
-    "Portal 2021: 6 de 12 meses baixados até agora; continua na próxima execução",
-    "Portal 2024: nenhum mês disponível (Portal bloqueou downloads nesta execução)",
+    "Portal 2024: 11 de 12 meses baixados até agora; continua na próxima execução",
     "Portal 2020: nenhum mês disponível (Portal bloqueou downloads nesta execução)",
     "Portal 2023: nenhum mês disponível (Portal bloqueou downloads nesta execução)",
     "Portal 2019: nenhum mês disponível (Portal bloqueou downloads nesta execução)"

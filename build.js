@@ -10,13 +10,15 @@ const compacto = (v) =>
   : v >= 1e3 ? `R$ ${(v / 1e3).toLocaleString("pt-BR", { maximumFractionDigits: 1 })} mil`
   : `R$ ${brl(v)}`;
 
-// Só entram anos com as duas fontes, do mais recente para o mais antigo.
+// Do mais recente para o mais antigo; um ano aparece mesmo se uma das fontes falhou.
 const anos = Object.entries(dados.anos)
-  .filter(([, a]) => a.lula && a.flavio)
+  .filter(([, a]) => a.lula || a.flavio)
   .map(([ano, a]) => ({ ano: Number(ano), ...a }))
   .sort((a, b) => b.ano - a.ano);
+const ultimoPortal = anos.find((a) => a.lula);
+const ultimoSenado = anos.find((a) => a.flavio);
 
-const html = pug.renderFile("src/index.pug", { ...dados, anos, brl, compacto });
+const html = pug.renderFile("src/index.pug", { ...dados, anos, ultimoPortal, ultimoSenado, brl, compacto });
 
 fs.mkdirSync("dist", { recursive: true });
 fs.writeFileSync("dist/index.html", html);

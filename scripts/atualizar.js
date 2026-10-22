@@ -113,15 +113,29 @@ function detalhePortal(sigiloso, doc, fav) {
   return tituloCaso(fav);
 }
 
+const espera = (ms) => new Promise((r) => setTimeout(r, ms));
+
+// O Portal recusa (403) tanto meses não publicados quanto downloads demais seguidos,
+// então espaça os pedidos e tenta de novo antes de concluir que o mês não existe.
+async function baixarZip(url) {
+  for (let tentativa = 1; tentativa <= 4; tentativa++) {
+    await espera(tentativa === 1 ? 2000 : 20000 * tentativa);
+    const r = await baixar(url);
+    if (r.ok && /zip/i.test(r.headers.get("content-type") || "")) return Buffer.from(await r.arrayBuffer());
+    console.log(`  ${url}: HTTP ${r.status} (tentativa ${tentativa})`);
+  }
+  return null;
+}
+
 async function portal(ano, ateMes) {
   const grupos = new Map(); // órgão + portador + favorecido -> soma (o portador nunca é publicado)
   const porMes = [];
   let sigPres = 0, sigVice = 0, ultimo = 0;
 
   for (let m = 1; m <= ateMes; m++) {
-    const r = await baixar(`https://portaldatransparencia.gov.br/download-de-dados/cpgf/${ano}${String(m).padStart(2, "0")}`);
-    if (!r.ok || !/zip/i.test(r.headers.get("content-type") || "")) break; // mês ainda não publicado
-    const zip = new AdmZip(Buffer.from(await r.arrayBuffer()));
+    const buf = await baixarZip(`https://portaldatransparencia.gov.br/download-de-dados/cpgf/${ano}${String(m).padStart(2, "0")}`);
+    if (!buf) break; // mês ainda não publicado (ou Portal indisponível)
+    const zip = new AdmZip(buf);
     const csv = zip.getEntries().find((e) => e.entryName.toLowerCase().endsWith(".csv"));
     const linhas = csv.getData().toString("latin1").split("\n").slice(1);
 
@@ -185,7 +199,16 @@ async function portal(ano, ateMes) {
       try { atual.flavio = await senado(ano); atualizados++; } catch (e) { erros.push(e.message); }
     }
     if (todos || !fechado || !(atual.lula && atual.lula.completo)) {
-      try { atual.lula = await portal(ano, fechado ? 12 : mesAtual); atualizados++; } catch (e) { erros.push(e.message); }
+      try {
+        const novo = await portal(ano, fechado ? 12 : mesAtual);
+        // Nunca troca dados por uma versão com menos meses (download interrompido no meio).
+        if (atual.lula && novo.meses.length < atual.lula.meses.length) {
+          erros.push(`Portal ${ano}: só ${novo.meses.length} meses baixados; mantidos os dados anteriores (até ${atual.lula.ate})`);
+        } else {
+          atual.lula = novo;
+          atualizados++;
+        }
+      } catch (e) { erros.push(e.message); }
     }
     dados.anos[ano] = atual;
     console.log(`${ano}: Senado até ${atual.flavio?.ate ?? "-"}, Portal até ${atual.lula?.ate ?? "-"}`);

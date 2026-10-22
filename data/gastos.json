@@ -635,62 +635,62 @@
         "top": [
           {
             "descricao": "Presidência da República",
-            "sigiloso": true,
             "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
             "valor": 22437619.03
           },
           {
             "descricao": "Gabinete da Vice-Presidência",
-            "sigiloso": true,
             "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
             "valor": 294362.84
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 31759.01
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Auto Posto Parque Villa Lobos",
+            "sigiloso": false,
             "valor": 26222.17
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Favorecido: não se aplica",
+            "sigiloso": false,
             "valor": 17800
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 17797.52
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Auto Posto Hygienopolis",
+            "sigiloso": false,
             "valor": 15319.05
           },
           {
             "descricao": "Imprensa Nacional",
-            "sigiloso": false,
             "detalhe": "Dftek Comercio e Servicos",
+            "sigiloso": false,
             "valor": 14030
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 13912.95
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 13089.63
           }
         ],
@@ -1073,10 +1073,9 @@
       }
     }
   },
-  "atualizado_em": "22/10/2026, 00h06",
+  "atualizado_em": "22/10/2026, 00h09",
   "erros": [
-    "Portal 2025: 1 de 12 meses baixados até agora; continua na próxima execução",
-    "Portal 2021: nenhum mês disponível (Portal bloqueou downloads nesta execução)",
+    "Portal 2021: 6 de 12 meses baixados até agora; continua na próxima execução",
     "Portal 2024: nenhum mês disponível (Portal bloqueou downloads nesta execução)",
     "Portal 2020: nenhum mês disponível (Portal bloqueou downloads nesta execução)",
     "Portal 2023: nenhum mês disponível (Portal bloqueou downloads nesta execução)",

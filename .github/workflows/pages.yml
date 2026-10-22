@@ -1,0 +1,76 @@
+name: Atualizar dados e publicar
+
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: "0 11 * * *" # todo dia às 8h de Brasília
+  workflow_dispatch:
+    inputs:
+      todos:
+        description: "Refazer também os anos fechados"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Prazo da rotina diária (até 26/10/2026)
+        id: prazo
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] && [ "$(TZ=America/Sao_Paulo date +%F)" \> "2026-10-26" ]; then
+            echo "Rotina diária encerrada em 26/10/2026."
+            echo "ok=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "ok=true" >> "$GITHUB_OUTPUT"
+          fi
+      - if: steps.prazo.outputs.ok == 'true'
+        uses: actions/checkout@v5
+      - if: steps.prazo.outputs.ok == 'true'
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+      - if: steps.prazo.outputs.ok == 'true'
+        run: npm install --no-audit --no-fund
+      - name: Baixar dados oficiais
+        if: steps.prazo.outputs.ok == 'true'
+        run: node scripts/atualizar.js ${{ inputs.todos && '--todos' || '' }}
+      - name: Salvar data/gastos.json no repositório
+        if: steps.prazo.outputs.ok == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/gastos.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Atualiza dados ($(TZ=America/Sao_Paulo date '+%d/%m/%Y %H:%M'))"
+            git push
+          fi
+      - if: steps.prazo.outputs.ok == 'true'
+        run: npm run build
+      - if: steps.prazo.outputs.ok == 'true'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: dist
+    outputs:
+      ok: ${{ steps.prazo.outputs.ok }}
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.ok == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

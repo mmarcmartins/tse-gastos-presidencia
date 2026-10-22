@@ -1,0 +1,12 @@
+{
+  "name": "tse-gastos-presidencia",
+  "private": true,
+  "scripts": {
+    "atualizar": "node scripts/atualizar.js",
+    "build": "node build.js"
+  },
+  "devDependencies": {
+    "adm-zip": "0.5.16",
+    "pug": "3.0.3"
+  }
+}

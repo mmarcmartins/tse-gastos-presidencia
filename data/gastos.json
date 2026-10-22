@@ -625,6 +625,125 @@
             "valor": 21244.56
           }
         ]
+      },
+      "lula": {
+        "ate": "dez/2025",
+        "completo": true,
+        "sigiloso_presidencia": 22437619.03,
+        "sigiloso_vice": 294362.84,
+        "total": 23129530.76,
+        "top": [
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": true,
+            "detalhe": "Portador e favorecido sob sigilo",
+            "valor": 22437619.03
+          },
+          {
+            "descricao": "Gabinete da Vice-Presidência",
+            "sigiloso": true,
+            "detalhe": "Portador e favorecido sob sigilo",
+            "valor": 294362.84
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 31759.01
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Auto Posto Parque Villa Lobos",
+            "valor": 26222.17
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Favorecido: não se aplica",
+            "valor": 17800
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 17797.52
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Auto Posto Hygienopolis",
+            "valor": 15319.05
+          },
+          {
+            "descricao": "Imprensa Nacional",
+            "sigiloso": false,
+            "detalhe": "Dftek Comercio e Servicos",
+            "valor": 14030
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 13912.95
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 13089.63
+          }
+        ],
+        "meses": [
+          {
+            "mes": "jan",
+            "valor": 1454014.28
+          },
+          {
+            "mes": "fev",
+            "valor": 637192.01
+          },
+          {
+            "mes": "mar",
+            "valor": 2166876.94
+          },
+          {
+            "mes": "abr",
+            "valor": 1680569.89
+          },
+          {
+            "mes": "mai",
+            "valor": 1952609.53
+          },
+          {
+            "mes": "jun",
+            "valor": 1983934.81
+          },
+          {
+            "mes": "jul",
+            "valor": 2229377.83
+          },
+          {
+            "mes": "ago",
+            "valor": 3150561.92
+          },
+          {
+            "mes": "set",
+            "valor": 1466958.69
+          },
+          {
+            "mes": "out",
+            "valor": 1290693.73
+          },
+          {
+            "mes": "nov",
+            "valor": 1910428.01
+          },
+          {
+            "mes": "dez",
+            "valor": 3206313.12
+          }
+        ]
       }
     },
     "2026": {
@@ -744,12 +863,112 @@
             "valor": 2192.32
           }
         ]
+      },
+      "lula": {
+        "ate": "ago/2026",
+        "completo": false,
+        "sigiloso_presidencia": 10128956.87,
+        "sigiloso_vice": 122406.3,
+        "total": 10474974.83,
+        "top": [
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": true,
+            "detalhe": "Portador e favorecido sob sigilo",
+            "valor": 10128956.87
+          },
+          {
+            "descricao": "Gabinete da Vice-Presidência",
+            "sigiloso": true,
+            "detalhe": "Portador e favorecido sob sigilo",
+            "valor": 122406.3
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Auto Posto Parque Villa Lobos",
+            "valor": 20075.67
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 19191.76
+          },
+          {
+            "descricao": "Imprensa Nacional",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 10458.82
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 10090.75
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 9705.47
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Auto Posto Hygienopolis",
+            "valor": 8935.23
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 8475.36
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Favorecido: não se aplica",
+            "valor": 8000
+          }
+        ],
+        "meses": [
+          {
+            "mes": "jan",
+            "valor": 1484748.06
+          },
+          {
+            "mes": "fev",
+            "valor": 848240.05
+          },
+          {
+            "mes": "mar",
+            "valor": 932623.35
+          },
+          {
+            "mes": "abr",
+            "valor": 1354590.21
+          },
+          {
+            "mes": "mai",
+            "valor": 1314241.03
+          },
+          {
+            "mes": "jun",
+            "valor": 1473001.26
+          },
+          {
+            "mes": "jul",
+            "valor": 1402577
+          },
+          {
+            "mes": "ago",
+            "valor": 1664953.87
+          }
+        ]
       }
     }
   },
-  "atualizado_em": "21/10/2026, 23h27",
-  "erros": [
-    "Portal 2025: nenhum mês disponível",
-    "Portal 2026: nenhum mês disponível"
-  ]
+  "atualizado_em": "21/10/2026, 23h29",
+  "erros": []
 }

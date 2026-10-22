@@ -244,6 +244,126 @@
             "valor": 1709511.42
           }
         ]
+      },
+      "jair": {
+        "ano_mandato": 2019,
+        "ate": "dez/2019",
+        "completo": true,
+        "sigiloso_presidencia": 14889017.9,
+        "sigiloso_vice": 635351.9,
+        "total": 15769288.1,
+        "top": [
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
+            "valor": 14889017.9
+          },
+          {
+            "descricao": "Gabinete da Vice-Presidência",
+            "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
+            "valor": 635351.9
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Favorecido: não se aplica",
+            "sigiloso": false,
+            "valor": 12900
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Auto Posto Hygienopolis",
+            "sigiloso": false,
+            "valor": 8240.8
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Posto Super",
+            "sigiloso": false,
+            "valor": 7246.94
+          },
+          {
+            "descricao": "EBC",
+            "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
+            "valor": 7159.26
+          },
+          {
+            "descricao": "EBC",
+            "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
+            "valor": 6976.64
+          },
+          {
+            "descricao": "EBC",
+            "detalhe": "Favorecido: não se aplica",
+            "sigiloso": false,
+            "valor": 6910.87
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Favorecido: não se aplica",
+            "sigiloso": false,
+            "valor": 6475
+          },
+          {
+            "descricao": "EBC",
+            "detalhe": "Favorecido: não se aplica",
+            "sigiloso": false,
+            "valor": 6450
+          }
+        ],
+        "meses": [
+          {
+            "mes": "jan",
+            "valor": 849852.68
+          },
+          {
+            "mes": "fev",
+            "valor": 911731.19
+          },
+          {
+            "mes": "mar",
+            "valor": 749718.38
+          },
+          {
+            "mes": "abr",
+            "valor": 1011221.23
+          },
+          {
+            "mes": "mai",
+            "valor": 1236367.94
+          },
+          {
+            "mes": "jun",
+            "valor": 1451241.34
+          },
+          {
+            "mes": "jul",
+            "valor": 1256249.68
+          },
+          {
+            "mes": "ago",
+            "valor": 1410551.59
+          },
+          {
+            "mes": "set",
+            "valor": 1612752.86
+          },
+          {
+            "mes": "out",
+            "valor": 1421583.29
+          },
+          {
+            "mes": "nov",
+            "valor": 1908751.63
+          },
+          {
+            "mes": "dez",
+            "valor": 1949266.29
+          }
+        ]
       }
     },
     "2024": {
@@ -1313,8 +1433,7 @@
       }
     }
   },
-  "atualizado_em": "22/10/2026, 00h17",
-  "erros": [
-    "Portal 2019: 9 de 12 meses baixados até agora; continua na próxima execução"
-  ]
+  "atualizado_em": "22/10/2026, 00h19",
+  "erros": [],
+  "versao": 3
 }

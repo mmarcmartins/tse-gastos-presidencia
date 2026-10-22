@@ -381,62 +381,62 @@
         "top": [
           {
             "descricao": "Presidência da República",
-            "sigiloso": true,
             "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
             "valor": 25930082.13
           },
           {
             "descricao": "Gabinete da Vice-Presidência",
-            "sigiloso": true,
             "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
             "valor": 397385.36
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Auto Posto Parque Villa Lobos",
+            "sigiloso": false,
             "valor": 21290.16
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Auto Posto Hygienopolis",
+            "sigiloso": false,
             "valor": 15810.31
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido: não se aplica",
+            "sigiloso": false,
             "valor": 11646.13
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 11571.1
           },
           {
             "descricao": "Presidência da República",
-            "sigiloso": false,
             "detalhe": "Favorecido: não se aplica",
+            "sigiloso": false,
             "valor": 11020
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 10431.8
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 10178.37
           },
           {
             "descricao": "EBC",
-            "sigiloso": false,
             "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
             "valor": 10035.37
           }
         ],
@@ -488,6 +488,126 @@
           {
             "mes": "dez",
             "valor": 2927728.79
+          }
+        ]
+      },
+      "jair": {
+        "ano_mandato": 2020,
+        "ate": "dez/2020",
+        "completo": true,
+        "sigiloso_presidencia": 19188856.91,
+        "sigiloso_vice": 686191.03,
+        "total": 20131445.82,
+        "top": [
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
+            "valor": 19188856.91
+          },
+          {
+            "descricao": "Gabinete da Vice-Presidência",
+            "detalhe": "Portador e favorecido sob sigilo",
+            "sigiloso": true,
+            "valor": 686191.03
+          },
+          {
+            "descricao": "EBC",
+            "detalhe": "Laboratorio Sabin de Analises Clinicas S.a",
+            "sigiloso": false,
+            "valor": 14290.04
+          },
+          {
+            "descricao": "EBC",
+            "detalhe": "Cura - Centro de Ultrassonografia e Radiologia S.a",
+            "sigiloso": false,
+            "valor": 13730
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Auto Posto Parque Villa Lobos",
+            "sigiloso": false,
+            "valor": 13030.29
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Auto Posto Estonia 3",
+            "sigiloso": false,
+            "valor": 7957.64
+          },
+          {
+            "descricao": "Imprensa Nacional",
+            "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
+            "valor": 7770
+          },
+          {
+            "descricao": "EBC",
+            "detalhe": "Laboratorio Sabin de Analises Clinicas S.a",
+            "sigiloso": false,
+            "valor": 7560
+          },
+          {
+            "descricao": "Presidência da República",
+            "detalhe": "Favorecido sem informação",
+            "sigiloso": false,
+            "valor": 7349.11
+          },
+          {
+            "descricao": "EBC",
+            "detalhe": "Mulier Laboratorio Clinico",
+            "sigiloso": false,
+            "valor": 7140
+          }
+        ],
+        "meses": [
+          {
+            "mes": "jan",
+            "valor": 1842175.59
+          },
+          {
+            "mes": "fev",
+            "valor": 940660.57
+          },
+          {
+            "mes": "mar",
+            "valor": 3655661.39
+          },
+          {
+            "mes": "abr",
+            "valor": 1402422.89
+          },
+          {
+            "mes": "mai",
+            "valor": 417109.33
+          },
+          {
+            "mes": "jun",
+            "valor": 1496617.61
+          },
+          {
+            "mes": "jul",
+            "valor": 1007454.59
+          },
+          {
+            "mes": "ago",
+            "valor": 1469180.65
+          },
+          {
+            "mes": "set",
+            "valor": 1956780.35
+          },
+          {
+            "mes": "out",
+            "valor": 2090341.91
+          },
+          {
+            "mes": "nov",
+            "valor": 2293140.6
+          },
+          {
+            "mes": "dez",
+            "valor": 1559900.34
           }
         ]
       }
@@ -1193,11 +1313,9 @@
       }
     }
   },
-  "atualizado_em": "22/10/2026, 00h11",
+  "atualizado_em": "22/10/2026, 00h14",
   "erros": [
-    "Portal 2024: 11 de 12 meses baixados até agora; continua na próxima execução",
-    "Portal 2020: nenhum mês disponível (Portal bloqueou downloads nesta execução)",
-    "Portal 2023: nenhum mês disponível (Portal bloqueou downloads nesta execução)",
+    "Portal 2023: 4 de 12 meses baixados até agora; continua na próxima execução",
     "Portal 2019: nenhum mês disponível (Portal bloqueou downloads nesta execução)"
   ]
 }

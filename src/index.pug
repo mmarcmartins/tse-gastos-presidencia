@@ -2,8 +2,10 @@
   const SENADO = (ano) => `https://adm.senado.gov.br/adm-dadosabertos/api/v1/senadores/despesas_ceaps/${ano}`
   const PORTAL = (ano) => `https://portaldatransparencia.gov.br/cartoes/consulta?ordenarPor=valorTotal&direcao=desc&de=01/01/${ano}&ate=31/12/${ano}&orgaos=OS20000`
   const PORTAL_DOWNLOAD = "https://portaldatransparencia.gov.br/download-de-dados/cpgf"
-  const recente = anos[0]
   const ou = (v, f) => (v === undefined ? "–" : f(v))
+  const anoMandato = (ano) => `${ano - 2022}º ano`
+  const ativo = "background: var(--surface); color: var(--fg); border-color: var(--line); border-bottom-color: var(--surface);"
+  const foco = "outline: 2px solid var(--accent); outline-offset: 2px;"
 
 mixin tabela(titulo, coluna, linhas)
   div
@@ -36,123 +38,179 @@ mixin meses(titulo, meses)
           .b(class=(m === maior ? "max" : undefined) style=`height:${max ? Math.round(m.valor / max * 100) : 0}%` title=`R$ ${brl(m.valor)}`)
           .lbl= m.mes
 
+//- Card do cartão de pagamento da Presidência (Lula ou Jair).
+mixin presidencia(id, nome, papel, anoDados, d)
+  section.cand(aria-labelledby=id)
+    div
+      h2(id=id)= nome
+      .role= papel
+      if d
+        .src Fonte: #[a(href=PORTAL(anoDados) target="_blank" rel="noopener") Portal da Transparência], cartões de pagamento da Presidência (jan–#{d.ate})
+      else
+        .src Fonte: #[a(href=PORTAL(anoDados) target="_blank" rel="noopener") Portal da Transparência]
+    if !d
+      p.note O Portal da Transparência não respondeu na última atualização. A rotina tenta de novo no próximo dia.
+    else
+      .kpis
+        .kpi
+          .v= compacto(d.sigiloso_presidencia)
+          .l gastos sigilosos da Presidência
+        .kpi
+          .v= compacto(d.sigiloso_vice)
+          .l gastos sigilosos da Vice-Presidência
+      +tabela("10 maiores gastos por portador e favorecido", "Unidade / favorecido", d.top)
+      +meses("Por mês do extrato (R$)", d.meses)
+      p.note Linhas sem a marca “sigiloso” são gastos de servidores com cartão corporativo. A EBC e a Imprensa Nacional são órgãos vinculados à Presidência. Nomes de portadores não são exibidos.
+
+mixin flavio(ano, d)
+  section.cand(aria-labelledby=`h-flavio-${ano}`)
+    div
+      h2(id=`h-flavio-${ano}`) Flávio Bolsonaro
+      .role Senador (RJ) · candidato à Presidência (PL)
+      if d
+        .src Fonte: #[a(href=SENADO(ano) target="_blank" rel="noopener") Senado Federal], cota parlamentar CEAPS (jan–#{d.ate})
+      else
+        .src Fonte: #[a(href=SENADO(ano) target="_blank" rel="noopener") Senado Federal]
+    if !d
+      p.note O Senado não respondeu na última atualização. A rotina tenta de novo no próximo dia.
+    else
+      .kpis
+        .kpi
+          .v R$ #{brl(d.total)}
+          .l total reembolsado em #{ano}
+        .kpi
+          .v= d.despesas
+          .l despesas lançadas
+      +tabela("10 maiores reembolsos", "Data / despesa", d.top)
+      - const maxCat = Math.max(...d.categorias.map((x) => x.valor))
+      div
+        h3 Por categoria
+        .cat
+          each x in d.categorias
+            .cat-row
+              span= x.nome
+              span.n= brl(x.valor)
+              .track
+                .fill(style=`width:${+Math.max(0.5, x.valor / maxCat * 100).toFixed(1)}%`)
+      +meses("Por mês de lançamento (R$)", d.meses)
+      p.note Valores pela data de lançamento no Senado. O mês corrente ainda pode receber lançamentos. Nos passageiros, só aparece se era o próprio senador.
+
 doctype html
 html(lang="pt-BR")
   head
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover")
-    title Gastos dos Candidatos 2026
+    title Gastos da Presidência e do Senado
     link(rel="preconnect" href="https://fonts.googleapis.com")
     link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
     link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap")
     style
       include styles.css
     style
-      each a in anos
-        | #t-#{a.ano}:checked ~ .paineis #p-#{a.ano} { display: block; }
-        | #t-#{a.ano}:checked ~ .tabs label[for="t-#{a.ano}"] { background: var(--surface); color: var(--fg); border-color: var(--line); border-bottom-color: var(--surface); }
-        | #t-#{a.ano}:focus-visible ~ .tabs label[for="t-#{a.ano}"] { outline: 2px solid var(--accent); outline-offset: 2px; }
+      each cmp in ["jl", "lf"]
+        | #c-#{cmp}:checked ~ .comparacoes #cmp-#{cmp} { display: flex; }
+        | #c-#{cmp}:checked ~ .comp-tabs label[for="c-#{cmp}"] { background: var(--accent-soft); color: var(--fg); border-color: var(--accent); }
+        | #c-#{cmp}:focus-visible ~ .comp-tabs label[for="c-#{cmp}"] { #{foco} }
+        each a in anos
+          | #t-#{cmp}-#{a.ano}:checked ~ .paineis #p-#{cmp}-#{a.ano} { display: block; }
+          | #t-#{cmp}-#{a.ano}:checked ~ .tabs label[for="t-#{cmp}-#{a.ano}"] { #{ativo} }
+          | #t-#{cmp}-#{a.ano}:focus-visible ~ .tabs label[for="t-#{cmp}-#{a.ano}"] { #{foco} }
   body
     .wrap
       header
         .eyebrow Eleição presidencial · 2º turno em 25/10/2026
-        h1 Maiores gastos públicos de Lula e Flávio Bolsonaro
-        p.lede Os 10 maiores gastos de cada ano, de 2023 a 2026, que aparecem nos portais oficiais de transparência, para cada candidato. São dados de dinheiro público ligado ao cargo de cada um, não das contas pessoais, que estão em disputa no TSE.
+        h1 Gastos públicos de Jair Bolsonaro, Lula e Flávio Bolsonaro
+        p.lede Os maiores gastos que aparecem nos portais oficiais de transparência. Primeiro, o cartão de pagamento da Presidência nos mandatos de Jair Bolsonaro (2019–2022) e de Lula (2023–2026), ano a ano. Depois, Lula ao lado da cota parlamentar de Flávio Bolsonaro. São dados de dinheiro público ligado ao cargo, não das contas pessoais, que estão em disputa no TSE.
         .status
           span Atualizado em #[strong#upd #{atualizado_em}]
           span #[a(href=SENADO(ultimoSenado.ano) target="_blank" rel="noopener") Senado]: dados até #[strong #{ultimoSenado.flavio.ate}]
           span #[a(href=PORTAL(ultimoPortal.ano) target="_blank" rel="noopener") Portal da Transparência]: dados até #[strong #{ultimoPortal.lula.ate}]
 
-      .notice #[b As duas colunas não são comparáveis.] A do Flávio é a cota de gabinete de um senador, gasta por ele e por outras pessoas do gabinete. A do Lula é o cartão corporativo da Presidência da República inteira, usado por servidores. Os gastos ligados diretamente ao presidente são classificados como sigilosos e aparecem só como um valor total.
+      .comparar
+        input#c-jl(type="radio" name="comparacao" checked)
+        input#c-lf(type="radio" name="comparacao")
+        .comp-tabs(aria-label="Escolha a comparação")
+          label(for="c-jl") Jair – Lula
+          label(for="c-lf") Lula – Flávio
 
-      section.resumo(aria-labelledby="h-resumo")
-        h3#h-resumo Resumo dos últimos 4 anos (R$)
-        .tbl
-          table
-            thead
-              tr
-                th Ano
-                th.n Lula: gastos sigilosos da Presidência
-                th.n Lula: cartão da Presidência, total
-                th.n Flávio: cota parlamentar, total
-            tbody
-              each a in anos
-                tr
-                  td= a.ano
-                  td.n= ou(a.lula && a.lula.sigiloso_presidencia, brl)
-                  td.n= ou(a.lula && a.lula.total, brl)
-                  td.n= ou(a.flavio && a.flavio.total, brl)
-        p.note Dados mais recentes: Portal até #{ultimoPortal.lula.ate}, Senado até #{ultimoSenado.flavio.ate}. “–” indica fonte indisponível na última atualização.
+        .comparacoes
+          //- Principal: mesmo cartão, mesmo órgão, ano equivalente do mandato.
+          .comparacao#cmp-jl
+            .notice #[b Mesma fonte e mesmo órgão.] As duas colunas são o cartão de pagamento da Presidência da República, comparadas pelo ano do mandato (2019 com 2023, 2020 com 2024 e assim por diante). Valores nominais, sem correção pela inflação. No ano em andamento, os dois lados usam só os meses já publicados.
 
-      .anos
-        each a, i in anos
-          input(type="radio" name="ano" id=`t-${a.ano}` checked=(i === 0))
-        .tabs(aria-label="Escolha o ano")
-          each a in anos
-            label(for=`t-${a.ano}`)= a.ano
-        .paineis
-          each a in anos
-            .painel(id=`p-${a.ano}`)
-              .cols
-                section.cand(aria-labelledby=`h-lula-${a.ano}`)
-                  div
-                    h2(id=`h-lula-${a.ano}`) Lula
-                    .role Presidente da República · candidato à reeleição (PT)
-                    if a.lula
-                      .src Fonte: #[a(href=PORTAL(a.ano) target="_blank" rel="noopener") Portal da Transparência], cartões de pagamento da Presidência (jan–#{a.lula.ate})
-                    else
-                      .src Fonte: #[a(href=PORTAL(a.ano) target="_blank" rel="noopener") Portal da Transparência]
-                  if !a.lula
-                    p.note O Portal da Transparência não respondeu na última atualização. A rotina tenta de novo no próximo dia.
-                  else
-                    .kpis
-                      .kpi
-                        .v= compacto(a.lula.sigiloso_presidencia)
-                        .l gastos sigilosos da Presidência
-                      .kpi
-                        .v= compacto(a.lula.sigiloso_vice)
-                        .l gastos sigilosos da Vice-Presidência
-                    +tabela("10 maiores gastos por portador e favorecido", "Unidade / favorecido", a.lula.top)
-                    +meses("Por mês do extrato (R$)", a.lula.meses)
-                    p.note Linhas sem a marca “sigiloso” são gastos de servidores com cartão corporativo. A EBC e a Imprensa Nacional são órgãos vinculados à Presidência. Nomes de portadores não são exibidos.
+            section.resumo(aria-labelledby="h-resumo-jl")
+              h3#h-resumo-jl Gastos sigilosos da Presidência por ano de mandato (R$)
+              .tbl
+                table
+                  thead
+                    tr
+                      th Ano de mandato
+                      th.n Jair Bolsonaro
+                      th.n Lula
+                      th.n Jair: cartão, total
+                      th.n Lula: cartão, total
+                  tbody
+                    each a in [...anos].reverse()
+                      tr
+                        td #{anoMandato(a.ano)} #[span.sub #{a.ano - 4} / #{a.ano}]
+                        td.n= ou(a.jair && a.jair.sigiloso_presidencia, brl)
+                        td.n= ou(a.lula && a.lula.sigiloso_presidencia, brl)
+                        td.n= ou(a.jair && a.jair.total, brl)
+                        td.n= ou(a.lula && a.lula.total, brl)
 
-                section.cand(aria-labelledby=`h-flavio-${a.ano}`)
-                  div
-                    h2(id=`h-flavio-${a.ano}`) Flávio Bolsonaro
-                    .role Senador (RJ) · candidato à Presidência (PL)
-                    if a.flavio
-                      .src Fonte: #[a(href=SENADO(a.ano) target="_blank" rel="noopener") Senado Federal], cota parlamentar CEAPS (jan–#{a.flavio.ate})
-                    else
-                      .src Fonte: #[a(href=SENADO(a.ano) target="_blank" rel="noopener") Senado Federal]
-                  if !a.flavio
-                    p.note O Senado não respondeu na última atualização. A rotina tenta de novo no próximo dia.
-                  else
-                    .kpis
-                      .kpi
-                        .v R$ #{brl(a.flavio.total)}
-                        .l total reembolsado em #{a.ano}
-                      .kpi
-                        .v= a.flavio.despesas
-                        .l despesas lançadas
-                    +tabela("10 maiores reembolsos", "Data / despesa", a.flavio.top)
-                    - const maxCat = Math.max(...a.flavio.categorias.map((x) => x.valor))
-                    div
-                      h3 Por categoria
-                      .cat
-                        each x in a.flavio.categorias
-                          .cat-row
-                            span= x.nome
-                            span.n= brl(x.valor)
-                            .track
-                              .fill(style=`width:${+Math.max(0.5, x.valor / maxCat * 100).toFixed(1)}%`)
-                    +meses("Por mês de lançamento (R$)", a.flavio.meses)
-                    p.note Valores pela data de lançamento no Senado. O mês corrente ainda pode receber lançamentos. Nos passageiros, só aparece se era o próprio senador.
+            .anos
+              each a, i in anos
+                input(type="radio" name="ano-jl" id=`t-jl-${a.ano}` checked=(i === 0))
+              .tabs(aria-label="Escolha o ano de mandato")
+                each a in [...anos].reverse()
+                  label(for=`t-jl-${a.ano}`) #{anoMandato(a.ano)} · #{a.ano - 4}/#{a.ano}
+              .paineis
+                each a in anos
+                  .painel(id=`p-jl-${a.ano}`)
+                    .cols
+                      +presidencia(`h-jair-${a.ano}`, "Jair Bolsonaro", `Presidente da República de 2019 a 2022 · ${anoMandato(a.ano)} de mandato (${a.ano - 4})`, a.ano - 4, a.jair)
+                      +presidencia(`h-lula-jl-${a.ano}`, "Lula", `Presidente da República desde 2023 · ${anoMandato(a.ano)} de mandato (${a.ano})`, a.ano, a.lula)
+
+          //- Secundária: cargos diferentes, não comparáveis.
+          .comparacao#cmp-lf
+            .notice #[b As duas colunas não são comparáveis.] A do Flávio é a cota de gabinete de um senador, gasta por ele e por outras pessoas do gabinete. A do Lula é o cartão corporativo da Presidência da República inteira, usado por servidores. Os gastos ligados diretamente ao presidente são classificados como sigilosos e aparecem só como um valor total.
+
+            section.resumo(aria-labelledby="h-resumo-lf")
+              h3#h-resumo-lf Resumo dos últimos 4 anos (R$)
+              .tbl
+                table
+                  thead
+                    tr
+                      th Ano
+                      th.n Lula: gastos sigilosos da Presidência
+                      th.n Lula: cartão da Presidência, total
+                      th.n Flávio: cota parlamentar, total
+                  tbody
+                    each a in anos
+                      tr
+                        td= a.ano
+                        td.n= ou(a.lula && a.lula.sigiloso_presidencia, brl)
+                        td.n= ou(a.lula && a.lula.total, brl)
+                        td.n= ou(a.flavio && a.flavio.total, brl)
+
+            .anos
+              each a, i in anos
+                input(type="radio" name="ano-lf" id=`t-lf-${a.ano}` checked=(i === 0))
+              .tabs(aria-label="Escolha o ano")
+                each a in anos
+                  label(for=`t-lf-${a.ano}`)= a.ano
+              .paineis
+                each a in anos
+                  .painel(id=`p-lf-${a.ano}`)
+                    .cols
+                      +presidencia(`h-lula-lf-${a.ano}`, "Lula", "Presidente da República · candidato à reeleição (PT)", a.ano, a.lula)
+                      +flavio(a.ano, a.flavio)
 
       footer
         span Fontes oficiais (dados baixados automaticamente todos os dias):
-        span #[a(href=PORTAL(recente.ano) target="_blank" rel="noopener") Portal da Transparência: cartões de pagamento da Presidência da República]
-        span #[a(href=PORTAL_DOWNLOAD target="_blank" rel="noopener") Portal da Transparência: arquivos mensais do cartão de pagamento (CPGF)]
+        span #[a(href=PORTAL_DOWNLOAD target="_blank" rel="noopener") Portal da Transparência: arquivos mensais do cartão de pagamento do governo federal (CPGF)]
+        span #[a(href=PORTAL(ultimoPortal.ano) target="_blank" rel="noopener") Portal da Transparência: consulta dos cartões da Presidência da República]
         each a in anos
           span #[a(href=SENADO(a.ano) target="_blank" rel="noopener") Senado Federal: dados abertos da cota parlamentar (CEAPS) #{a.ano}]
         span #[a(href="gastos.json") Dados usados nesta página (JSON)]
-        span Nomes de servidores, assessores, passageiros e de empresas individuais com nome de pessoa foram omitidos. Esta página não inclui dados bancários, fiscais ou telefônicos pessoais de nenhum candidato.
+        span Nomes de servidores, assessores, passageiros e de empresas individuais com nome de pessoa foram omitidos. Esta página não inclui dados bancários, fiscais ou telefônicos pessoais de ninguém.

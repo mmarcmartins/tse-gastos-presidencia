@@ -78,8 +78,13 @@ td .sub { display: block; font-size: 12px; color: var(--muted); }
 .src a { color: var(--accent); }
 .resumo { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 18px 22px; display: flex; flex-direction: column; gap: 8px; }
 .resumo th.n { white-space: normal; }
+.comparar { display: flex; flex-direction: column; gap: 20px; }
+.comparar > input, .anos > input { position: absolute; opacity: 0; pointer-events: none; }
+.comp-tabs { display: flex; flex-wrap: wrap; gap: 8px; }
+.comp-tabs label { font-family: var(--font-display); font-weight: 600; font-size: 20px; padding: 8px 18px; border: 1px solid var(--line); border-radius: 6px; color: var(--muted); cursor: pointer; }
+.comp-tabs label:hover { color: var(--fg); }
+.comparacao { display: none; flex-direction: column; gap: 24px; }
 .anos { display: flex; flex-direction: column; }
-.anos > input { position: absolute; opacity: 0; pointer-events: none; }
 .tabs { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: -1px; position: relative; }
 .tabs label { font-family: var(--font-mono); font-size: 14px; padding: 8px 16px; border: 1px solid transparent; border-radius: 6px 6px 0 0; color: var(--muted); cursor: pointer; }
 .tabs label:hover { color: var(--fg); }

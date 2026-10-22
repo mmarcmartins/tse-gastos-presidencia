@@ -36,6 +36,8 @@ jobs:
           fi
       - if: steps.prazo.outputs.ok == 'true'
         uses: actions/checkout@v5
+        with:
+          ref: main
       - if: steps.prazo.outputs.ok == 'true'
         uses: actions/setup-node@v5
         with:
@@ -50,6 +52,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Os dados recém-baixados são os mais novos: aplica sobre o main atual para não conflitar.
+          cp data/gastos.json "$RUNNER_TEMP/gastos.json"
+          git fetch -q origin main
+          git reset -q --hard origin/main
+          cp "$RUNNER_TEMP/gastos.json" data/gastos.json
           git add data/gastos.json
           if ! git diff --cached --quiet; then
             git commit -m "Atualiza dados ($(TZ=America/Sao_Paulo date '+%d/%m/%Y %H:%M'))"

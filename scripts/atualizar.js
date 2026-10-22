@@ -9,7 +9,9 @@ const COD_SENADOR = 5894; // Flávio Bolsonaro
 const ORGAO_PRESIDENCIA = "20000";
 const MESES = ["jan", "fev", "mar", "abr", "mai", "jun", "jul", "ago", "set", "out", "nov", "dez"];
 
-const todos = process.argv.includes("--todos");
+// Suba VERSAO quando mudar o que é calculado ou omitido: a próxima execução refaz todos os anos.
+const VERSAO = 2;
+let todos = process.argv.includes("--todos");
 const agora = new Date();
 const partes = Object.fromEntries(
   new Intl.DateTimeFormat("pt-BR", {
@@ -122,9 +124,10 @@ const espera = (ms) => new Promise((r) => setTimeout(r, ms));
 
 // O Portal recusa (403) tanto meses não publicados quanto downloads demais seguidos,
 // então espaça os pedidos e tenta de novo antes de concluir que o mês não existe.
-async function baixarZip(url) {
-  for (let tentativa = 1; tentativa <= 4; tentativa++) {
-    await espera(tentativa === 1 ? 2000 : 20000 * tentativa);
+async function baixarZip(url, insistir) {
+  const esperas = insistir ? [4000, 30000, 60000, 120000, 240000] : [4000, 20000];
+  for (let tentativa = 1; tentativa <= esperas.length; tentativa++) {
+    await espera(esperas[tentativa - 1]);
     const r = await baixar(url);
     if (r.ok && /zip/i.test(r.headers.get("content-type") || "")) return Buffer.from(await r.arrayBuffer());
     console.log(`  ${url}: HTTP ${r.status} (tentativa ${tentativa})`);
@@ -132,13 +135,15 @@ async function baixarZip(url) {
   return null;
 }
 
-async function portal(ano, ateMes) {
+// mesesConhecidos: meses que já sabemos que existem; neles insiste mais antes de desistir.
+async function portal(ano, ateMes, mesesConhecidos = 0) {
   const grupos = new Map(); // órgão + portador + favorecido -> soma (o portador nunca é publicado)
   const porMes = [];
   let sigPres = 0, sigVice = 0, ultimo = 0;
 
   for (let m = 1; m <= ateMes; m++) {
-    const buf = await baixarZip(`https://portaldatransparencia.gov.br/download-de-dados/cpgf/${ano}${String(m).padStart(2, "0")}`);
+    const url = `https://portaldatransparencia.gov.br/download-de-dados/cpgf/${ano}${String(m).padStart(2, "0")}`;
+    const buf = await baixarZip(url, m <= mesesConhecidos);
     if (!buf) break; // mês ainda não publicado (ou Portal indisponível)
     const zip = new AdmZip(buf);
     const csv = zip.getEntries().find((e) => e.entryName.toLowerCase().endsWith(".csv"));
@@ -193,6 +198,7 @@ async function portal(ano, ateMes) {
 (async () => {
   const dados = fs.existsSync(ARQ) ? JSON.parse(fs.readFileSync(ARQ, "utf8")) : {};
   dados.anos = dados.anos || {};
+  if (dados.versao !== VERSAO) todos = true;
   const erros = [];
   let atualizados = 0;
 
@@ -203,24 +209,37 @@ async function portal(ano, ateMes) {
     if (todos || !fechado || !atual.flavio) {
       try { atual.flavio = await senado(ano); atualizados++; } catch (e) { erros.push(e.message); }
     }
+    // Nunca troca dados por uma versão com menos meses (download interrompido no meio).
+    const guardar = (campo, novo, rotulo) => {
+      if (atual[campo] && novo.meses.length < atual[campo].meses.length) {
+        erros.push(`${rotulo}: só ${novo.meses.length} meses baixados; mantidos os dados anteriores (até ${atual[campo].ate})`);
+      } else {
+        atual[campo] = novo;
+        atualizados++;
+      }
+    };
+
     if (todos || !fechado || !(atual.lula && atual.lula.completo)) {
-      try {
-        const novo = await portal(ano, fechado ? 12 : mesAtual);
-        // Nunca troca dados por uma versão com menos meses (download interrompido no meio).
-        if (atual.lula && novo.meses.length < atual.lula.meses.length) {
-          erros.push(`Portal ${ano}: só ${novo.meses.length} meses baixados; mantidos os dados anteriores (até ${atual.lula.ate})`);
-        } else {
-          atual.lula = novo;
-          atualizados++;
-        }
-      } catch (e) { erros.push(e.message); }
+      const conhecidos = fechado ? 12 : atual.lula ? atual.lula.meses.length : 0;
+      try { guardar("lula", await portal(ano, fechado ? 12 : mesAtual, conhecidos), `Portal ${ano}`); } catch (e) { erros.push(e.message); }
     }
+
+    // Jair Bolsonaro: cartão da Presidência no ano equivalente do mandato dele (2019 ↔ 2023 …),
+    // limitado aos mesmos meses já publicados para o Lula, para comparar períodos iguais.
+    const anoJair = ano - 4;
+    const mesesAlvo = fechado ? 12 : atual.lula ? atual.lula.meses.length : 0;
+    if (mesesAlvo && (todos || !atual.jair || atual.jair.meses.length !== mesesAlvo)) {
+      try { guardar("jair", { ano_mandato: anoJair, ...(await portal(anoJair, mesesAlvo, mesesAlvo)) }, `Portal ${anoJair}`); } catch (e) { erros.push(e.message); }
+    }
+
     dados.anos[ano] = atual;
-    console.log(`${ano}: Senado até ${atual.flavio?.ate ?? "-"}, Portal até ${atual.lula?.ate ?? "-"}`);
+    console.log(`${ano}: Senado até ${atual.flavio?.ate ?? "-"}, Portal até ${atual.lula?.ate ?? "-"}, Jair até ${atual.jair?.ate ?? "-"}`);
   }
 
   dados.atualizado_em = `${partes.day}/${partes.month}/${partes.year}, ${partes.hour}h${partes.minute}`;
   dados.erros = erros;
+  // Só marca a versão nova quando tudo foi refeito sem falha; senão a próxima execução tenta de novo.
+  if (!erros.length) dados.versao = VERSAO;
   fs.mkdirSync("data", { recursive: true });
   fs.writeFileSync(ARQ, JSON.stringify(dados, null, 2) + "\n");
 

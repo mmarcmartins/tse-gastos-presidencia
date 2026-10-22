@@ -12,7 +12,7 @@ const compacto = (v) =>
 
 // Do mais recente para o mais antigo; um ano aparece mesmo se uma das fontes falhou.
 const anos = Object.entries(dados.anos)
-  .filter(([, a]) => a.lula || a.flavio)
+  .filter(([, a]) => a.lula || a.flavio || a.jair)
   .map(([ano, a]) => ({ ano: Number(ano), ...a }))
   .sort((a, b) => b.ano - a.ano);
 const ultimoPortal = anos.find((a) => a.lula);

@@ -146,31 +146,31 @@ html(lang="pt-BR")
                   thead
                     tr
                       th Ano de mandato
-                      th.n Jair Bolsonaro
                       th.n Lula
-                      th.n Jair: cartão, total
+                      th.n Jair Bolsonaro
                       th.n Lula: cartão, total
+                      th.n Jair: cartão, total
                   tbody
                     each a in [...anos].reverse()
                       tr
-                        td #{anoMandato(a.ano)} #[span.sub #{a.ano - 4} / #{a.ano}]
-                        td.n= ou(a.jair && a.jair.sigiloso_presidencia, brl)
+                        td #{anoMandato(a.ano)} #[span.sub #{a.ano} / #{a.ano - 4}]
                         td.n= ou(a.lula && a.lula.sigiloso_presidencia, brl)
-                        td.n= ou(a.jair && a.jair.total, brl)
+                        td.n= ou(a.jair && a.jair.sigiloso_presidencia, brl)
                         td.n= ou(a.lula && a.lula.total, brl)
+                        td.n= ou(a.jair && a.jair.total, brl)
 
             .anos
               each a, i in anos
                 input(type="radio" name="ano-jl" id=`t-jl-${a.ano}` checked=(i === 0))
               .tabs(aria-label="Escolha o ano de mandato")
                 each a in [...anos].reverse()
-                  label(for=`t-jl-${a.ano}`) #{anoMandato(a.ano)} · #{a.ano - 4}/#{a.ano}
+                  label(for=`t-jl-${a.ano}`) #{anoMandato(a.ano)} · #{a.ano}/#{a.ano - 4}
               .paineis
                 each a in anos
                   .painel(id=`p-jl-${a.ano}`)
                     .cols
-                      +presidencia(`h-jair-${a.ano}`, "Jair Bolsonaro", `Presidente da República de 2019 a 2022 · ${anoMandato(a.ano)} de mandato (${a.ano - 4})`, a.ano - 4, a.jair)
                       +presidencia(`h-lula-jl-${a.ano}`, "Lula", `Presidente da República desde 2023 · ${anoMandato(a.ano)} de mandato (${a.ano})`, a.ano, a.lula)
+                      +presidencia(`h-jair-${a.ano}`, "Jair Bolsonaro", `Presidente da República de 2019 a 2022 · ${anoMandato(a.ano)} de mandato (${a.ano - 4})`, a.ano - 4, a.jair)
 
           //- Secundária: cargos diferentes, não comparáveis.
           .comparacao#cmp-lf

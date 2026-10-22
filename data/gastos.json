@@ -1,0 +1,755 @@
+{
+  "anos": {
+    "2023": {
+      "flavio": {
+        "ate": "dez/2023",
+        "total": 122242.2,
+        "despesas": 86,
+        "top": [
+          {
+            "descricao": "26/05 · Passagem aérea, TAM",
+            "detalhe": "O próprio senador",
+            "valor": 5888.1
+          },
+          {
+            "descricao": "26/05 · Aluguel e despesas do escritório",
+            "detalhe": "Vinicius Ferreira Paixão",
+            "valor": 5300
+          },
+          {
+            "descricao": "01/02 · Passagem aérea, TAM",
+            "detalhe": "O próprio senador",
+            "valor": 4998.1
+          },
+          {
+            "descricao": "16/03 · Passagem aérea, AZUL",
+            "detalhe": "Outro passageiro",
+            "valor": 4919.46
+          },
+          {
+            "descricao": "16/03 · Passagem aérea, AZUL",
+            "detalhe": "Outro passageiro",
+            "valor": 4909.46
+          },
+          {
+            "descricao": "16/03 · Passagem aérea, AZUL",
+            "detalhe": "O próprio senador",
+            "valor": 4909.46
+          },
+          {
+            "descricao": "23/08 · Passagem aérea, GOL",
+            "detalhe": "O próprio senador",
+            "valor": 4269.8
+          },
+          {
+            "descricao": "10/03 · Passagem aérea, TAM",
+            "detalhe": "O próprio senador",
+            "valor": 3592.46
+          },
+          {
+            "descricao": "05/07 · Passagem aérea, AZUL",
+            "detalhe": "Outro passageiro",
+            "valor": 3386.46
+          },
+          {
+            "descricao": "05/07 · Passagem aérea, AZUL",
+            "detalhe": "Outro passageiro",
+            "valor": 3376.46
+          }
+        ],
+        "categorias": [
+          {
+            "nome": "Aluguel e despesas do escritório",
+            "valor": 62030.28
+          },
+          {
+            "nome": "Passagens aéreas",
+            "valor": 57097
+          },
+          {
+            "nome": "Divulgação da atividade parlamentar",
+            "valor": 1850
+          },
+          {
+            "nome": "Locomoção, hospedagem e combustível",
+            "valor": 1264.92
+          }
+        ],
+        "meses": [
+          {
+            "mes": "jan",
+            "valor": 3795.16
+          },
+          {
+            "mes": "fev",
+            "valor": 12286.26
+          },
+          {
+            "mes": "mar",
+            "valor": 26854.62
+          },
+          {
+            "mes": "abr",
+            "valor": 8794.79
+          },
+          {
+            "mes": "mai",
+            "valor": 17981.35
+          },
+          {
+            "mes": "jun",
+            "valor": 5210.11
+          },
+          {
+            "mes": "jul",
+            "valor": 18285.91
+          },
+          {
+            "mes": "ago",
+            "valor": 7746.42
+          },
+          {
+            "mes": "set",
+            "valor": 4777.44
+          },
+          {
+            "mes": "out",
+            "valor": 6309.69
+          },
+          {
+            "mes": "nov",
+            "valor": 5222.33
+          },
+          {
+            "mes": "dez",
+            "valor": 4978.12
+          }
+        ]
+      },
+      "lula": {
+        "ate": "dez/2023",
+        "completo": true,
+        "sigiloso_presidencia": 23581978.7,
+        "sigiloso_vice": 482495.53,
+        "total": 24314759.56,
+        "top": [
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": true,
+            "detalhe": "Portador e favorecido sob sigilo",
+            "valor": 23581978.7
+          },
+          {
+            "descricao": "Gabinete da Vice-Presidência",
+            "sigiloso": true,
+            "detalhe": "Portador e favorecido sob sigilo",
+            "valor": 482495.53
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 20125.41
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Auto Posto Hygienopolis",
+            "valor": 13406.05
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 13241.64
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Auto Posto Parque Villa Lobos",
+            "valor": 10800.51
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 10197.07
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 10099.13
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Auto Posto Grana",
+            "valor": 9609.22
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 7880.01
+          }
+        ],
+        "meses": [
+          {
+            "mes": "jan",
+            "valor": 771359.53
+          },
+          {
+            "mes": "fev",
+            "valor": 638194.71
+          },
+          {
+            "mes": "mar",
+            "valor": 1355896.16
+          },
+          {
+            "mes": "abr",
+            "valor": 2064583.01
+          },
+          {
+            "mes": "mai",
+            "valor": 2137660.96
+          },
+          {
+            "mes": "jun",
+            "valor": 3063955.81
+          },
+          {
+            "mes": "jul",
+            "valor": 1984635.17
+          },
+          {
+            "mes": "ago",
+            "valor": 2830745.79
+          },
+          {
+            "mes": "set",
+            "valor": 2798987.82
+          },
+          {
+            "mes": "out",
+            "valor": 2398479.69
+          },
+          {
+            "mes": "nov",
+            "valor": 2560749.49
+          },
+          {
+            "mes": "dez",
+            "valor": 1709511.42
+          }
+        ]
+      }
+    },
+    "2024": {
+      "flavio": {
+        "ate": "dez/2024",
+        "total": 180613.62,
+        "despesas": 174,
+        "top": [
+          {
+            "descricao": "09/09 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 6146.02
+          },
+          {
+            "descricao": "17/09 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 5495.85
+          },
+          {
+            "descricao": "12/07 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 4079.58
+          },
+          {
+            "descricao": "03/04 · Passagem aérea, TAM",
+            "detalhe": "O próprio senador",
+            "valor": 3983.51
+          },
+          {
+            "descricao": "30/09 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 3735.85
+          },
+          {
+            "descricao": "30/09 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 3731.85
+          },
+          {
+            "descricao": "12/12 · Passagem aérea, TAM",
+            "detalhe": "O próprio senador",
+            "valor": 3553.41
+          },
+          {
+            "descricao": "06/08 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 3537.58
+          },
+          {
+            "descricao": "24/09 · Locomoção, hospedagem e combustível",
+            "detalhe": "Hotel Royalty Barra",
+            "valor": 3353.4
+          },
+          {
+            "descricao": "28/02 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 3349.58
+          }
+        ],
+        "categorias": [
+          {
+            "nome": "Passagens aéreas",
+            "valor": 107131.24
+          },
+          {
+            "nome": "Aluguel e despesas do escritório",
+            "valor": 53586.86
+          },
+          {
+            "nome": "Locomoção, hospedagem e combustível",
+            "valor": 19877.32
+          },
+          {
+            "nome": "Material de escritório",
+            "valor": 18.2
+          }
+        ],
+        "meses": [
+          {
+            "mes": "jan",
+            "valor": 5101.52
+          },
+          {
+            "mes": "fev",
+            "valor": 9812.27
+          },
+          {
+            "mes": "mar",
+            "valor": 28645.24
+          },
+          {
+            "mes": "abr",
+            "valor": 28715.45
+          },
+          {
+            "mes": "mai",
+            "valor": 4742.25
+          },
+          {
+            "mes": "jun",
+            "valor": 11922.31
+          },
+          {
+            "mes": "jul",
+            "valor": 10182.42
+          },
+          {
+            "mes": "ago",
+            "valor": 19011.95
+          },
+          {
+            "mes": "set",
+            "valor": 30602.76
+          },
+          {
+            "mes": "out",
+            "valor": 13449.89
+          },
+          {
+            "mes": "nov",
+            "valor": 8424.93
+          },
+          {
+            "mes": "dez",
+            "valor": 10002.63
+          }
+        ]
+      },
+      "lula": {
+        "ate": "dez/2024",
+        "completo": true,
+        "sigiloso_presidencia": 25930082.13,
+        "sigiloso_vice": 397385.36,
+        "total": 26627044,
+        "top": [
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": true,
+            "detalhe": "Portador e favorecido sob sigilo",
+            "valor": 25930082.13
+          },
+          {
+            "descricao": "Gabinete da Vice-Presidência",
+            "sigiloso": true,
+            "detalhe": "Portador e favorecido sob sigilo",
+            "valor": 397385.36
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Auto Posto Parque Villa Lobos",
+            "valor": 21290.16
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Auto Posto Hygienopolis",
+            "valor": 15810.31
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido: não se aplica",
+            "valor": 11646.13
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 11571.1
+          },
+          {
+            "descricao": "Presidência da República",
+            "sigiloso": false,
+            "detalhe": "Favorecido: não se aplica",
+            "valor": 11020
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 10431.8
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 10178.37
+          },
+          {
+            "descricao": "EBC",
+            "sigiloso": false,
+            "detalhe": "Favorecido sem informação",
+            "valor": 10035.37
+          }
+        ],
+        "meses": [
+          {
+            "mes": "jan",
+            "valor": 2285072.64
+          },
+          {
+            "mes": "fev",
+            "valor": 1158768.79
+          },
+          {
+            "mes": "mar",
+            "valor": 1880996.27
+          },
+          {
+            "mes": "abr",
+            "valor": 1669737.2
+          },
+          {
+            "mes": "mai",
+            "valor": 1846362.87
+          },
+          {
+            "mes": "jun",
+            "valor": 1623064.67
+          },
+          {
+            "mes": "jul",
+            "valor": 2354032.62
+          },
+          {
+            "mes": "ago",
+            "valor": 2445634.8
+          },
+          {
+            "mes": "set",
+            "valor": 1929494.84
+          },
+          {
+            "mes": "out",
+            "valor": 1650986.86
+          },
+          {
+            "mes": "nov",
+            "valor": 4855163.65
+          },
+          {
+            "mes": "dez",
+            "valor": 2927728.79
+          }
+        ]
+      }
+    },
+    "2025": {
+      "flavio": {
+        "ate": "dez/2025",
+        "total": 189639.85,
+        "despesas": 184,
+        "top": [
+          {
+            "descricao": "02/12 · Passagem aérea, TAM",
+            "detalhe": "O próprio senador",
+            "valor": 5787.29
+          },
+          {
+            "descricao": "11/08 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 4974.86
+          },
+          {
+            "descricao": "11/08 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 4974.86
+          },
+          {
+            "descricao": "11/11 · Passagem aérea, GOL",
+            "detalhe": "Outro passageiro",
+            "valor": 4928.62
+          },
+          {
+            "descricao": "03/09 · Passagem aérea, GOL",
+            "detalhe": "Outro passageiro",
+            "valor": 4764.62
+          },
+          {
+            "descricao": "06/06 · Passagem aérea, TAM",
+            "detalhe": "O próprio senador",
+            "valor": 4713.37
+          },
+          {
+            "descricao": "23/10 · Passagem aérea, GOL",
+            "detalhe": "Outro passageiro",
+            "valor": 4689.62
+          },
+          {
+            "descricao": "23/10 · Passagem aérea, GOL",
+            "detalhe": "Outro passageiro",
+            "valor": 4689.62
+          },
+          {
+            "descricao": "21/03 · Locomoção, hospedagem e combustível",
+            "detalhe": "Hotel Royalty Barra",
+            "valor": 4424.63
+          },
+          {
+            "descricao": "10/10 · Passagem aérea, TAM",
+            "detalhe": "O próprio senador",
+            "valor": 4147.29
+          }
+        ],
+        "categorias": [
+          {
+            "nome": "Passagens aéreas",
+            "valor": 102147.39
+          },
+          {
+            "nome": "Aluguel e despesas do escritório",
+            "valor": 56958.11
+          },
+          {
+            "nome": "Locomoção, hospedagem e combustível",
+            "valor": 18345.35
+          },
+          {
+            "nome": "Material de escritório",
+            "valor": 8103.7
+          },
+          {
+            "nome": "Divulgação da atividade parlamentar",
+            "valor": 4000
+          },
+          {
+            "nome": "Consultorias",
+            "valor": 85.3
+          }
+        ],
+        "meses": [
+          {
+            "mes": "jan",
+            "valor": 2956.51
+          },
+          {
+            "mes": "fev",
+            "valor": 9060.07
+          },
+          {
+            "mes": "mar",
+            "valor": 14056.92
+          },
+          {
+            "mes": "abr",
+            "valor": 11085.55
+          },
+          {
+            "mes": "mai",
+            "valor": 13191.92
+          },
+          {
+            "mes": "jun",
+            "valor": 19358.85
+          },
+          {
+            "mes": "jul",
+            "valor": 4975.25
+          },
+          {
+            "mes": "ago",
+            "valor": 39026.31
+          },
+          {
+            "mes": "set",
+            "valor": 13197.64
+          },
+          {
+            "mes": "out",
+            "valor": 22682.57
+          },
+          {
+            "mes": "nov",
+            "valor": 18803.7
+          },
+          {
+            "mes": "dez",
+            "valor": 21244.56
+          }
+        ]
+      }
+    },
+    "2026": {
+      "flavio": {
+        "ate": "out/2026",
+        "total": 86264.27,
+        "despesas": 92,
+        "top": [
+          {
+            "descricao": "09/02 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 3803.81
+          },
+          {
+            "descricao": "08/01 · Passagem aérea, TAM",
+            "detalhe": "O próprio senador",
+            "valor": 3283.81
+          },
+          {
+            "descricao": "28/05 · Passagem aérea, GOL",
+            "detalhe": "Outro passageiro",
+            "valor": 3195.52
+          },
+          {
+            "descricao": "28/05 · Passagem aérea, GOL",
+            "detalhe": "Outro passageiro",
+            "valor": 3195.52
+          },
+          {
+            "descricao": "28/05 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 3182.77
+          },
+          {
+            "descricao": "28/05 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 3182.77
+          },
+          {
+            "descricao": "09/02 · Passagem aérea, TAM",
+            "detalhe": "O próprio senador",
+            "valor": 2567.77
+          },
+          {
+            "descricao": "06/07 · Passagem aérea, TAM",
+            "detalhe": "Outro passageiro",
+            "valor": 2364.87
+          },
+          {
+            "descricao": "06/05 · Passagem aérea, GOL",
+            "detalhe": "Outro passageiro",
+            "valor": 2325.52
+          },
+          {
+            "descricao": "06/05 · Passagem aérea, GOL",
+            "detalhe": "Outro passageiro",
+            "valor": 2325.52
+          }
+        ],
+        "categorias": [
+          {
+            "nome": "Aluguel e despesas do escritório",
+            "valor": 42587.62
+          },
+          {
+            "nome": "Passagens aéreas",
+            "valor": 38954.61
+          },
+          {
+            "nome": "Locomoção, hospedagem e combustível",
+            "valor": 4632.72
+          },
+          {
+            "nome": "Consultorias",
+            "valor": 89.32
+          }
+        ],
+        "meses": [
+          {
+            "mes": "jan",
+            "valor": 7385.13
+          },
+          {
+            "mes": "fev",
+            "valor": 12602.1
+          },
+          {
+            "mes": "mar",
+            "valor": 5355.5
+          },
+          {
+            "mes": "abr",
+            "valor": 5130.8
+          },
+          {
+            "mes": "mai",
+            "valor": 24377.15
+          },
+          {
+            "mes": "jun",
+            "valor": 9995.89
+          },
+          {
+            "mes": "jul",
+            "valor": 11081.32
+          },
+          {
+            "mes": "ago",
+            "valor": 5170.38
+          },
+          {
+            "mes": "set",
+            "valor": 2973.68
+          },
+          {
+            "mes": "out",
+            "valor": 2192.32
+          }
+        ]
+      }
+    }
+  },
+  "atualizado_em": "21/10/2026, 23h27",
+  "erros": [
+    "Portal 2025: nenhum mês disponível",
+    "Portal 2026: nenhum mês disponível"
+  ]
+}

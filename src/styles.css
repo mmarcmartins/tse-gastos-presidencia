@@ -62,6 +62,7 @@ th { text-align: left; font-weight: 500; color: var(--muted); font-size: 12px; b
 td { border-bottom: 1px solid var(--line); padding: 8px 8px 8px 0; vertical-align: top; }
 td.n, th.n { text-align: right; font-family: var(--font-mono); font-variant-numeric: tabular-nums; white-space: nowrap; padding-right: 0; }
 td.i { font-family: var(--font-mono); color: var(--muted); width: 2ch; }
+td a { color: var(--accent); }
 td .sub { display: block; font-size: 12px; color: var(--muted); }
 .pill { display: inline-block; font-family: var(--font-mono); font-size: 11px; padding: 1px 6px; border-radius: 3px; background: var(--warn-soft); color: var(--warn); }
 .cat { display: flex; flex-direction: column; gap: 8px; }

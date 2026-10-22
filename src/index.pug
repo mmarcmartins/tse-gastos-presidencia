@@ -3,6 +3,10 @@
   const PORTAL = (ano) => `https://portaldatransparencia.gov.br/cartoes/consulta?ordenarPor=valorTotal&direcao=desc&de=01/01/${ano}&ate=31/12/${ano}&orgaos=OS20000`
   const PORTAL_DOWNLOAD = "https://portaldatransparencia.gov.br/download-de-dados/cpgf"
   const ou = (v, f) => (v === undefined ? "–" : f(v))
+  // Siglas que levam a uma explicação externa.
+  const EXPLICA = {
+    EBC: { url: "https://pt.wikipedia.org/wiki/Empresa_Brasil_de_Comunica%C3%A7%C3%A3o", titulo: "Empresa Brasil de Comunicação: o que é (Wikipédia)" },
+  }
   const anoMandato = (ano) => `${ano - 2022}º ano`
   const ativo = "background: var(--surface); color: var(--fg); border-color: var(--line); border-bottom-color: var(--surface);"
   const foco = "outline: 2px solid var(--accent); outline-offset: 2px;"
@@ -21,7 +25,11 @@ mixin tabela(titulo, coluna, linhas)
           each l, i in linhas
             tr
               td.i= i + 1
-              td #{l.descricao}
+              td
+                if EXPLICA[l.descricao]
+                  a(href=EXPLICA[l.descricao].url title=EXPLICA[l.descricao].titulo target="_blank" rel="noopener")= l.descricao
+                else
+                  = l.descricao
                 if l.sigiloso
                   |  #[span.pill sigiloso]
                 span.sub= l.detalhe

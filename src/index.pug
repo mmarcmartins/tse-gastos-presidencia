@@ -42,6 +42,7 @@ mixin meses(titulo, meses)
 mixin presidencia(id, nome, papel, anoDados, d)
   section.cand(aria-labelledby=id)
     div
+      .ano-card= anoDados
       h2(id=id)= nome
       .role= papel
       if d

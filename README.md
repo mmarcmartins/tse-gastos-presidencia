@@ -62,12 +62,6 @@ npm run atualizar   # baixa os dados (opcional: node scripts/atualizar.js --todo
 npm run build       # gera dist/index.html
 ```
 
-Para forçar uma atualização no GitHub:
-
-```sh
-gh workflow run pages.yml -R mmarcmartins/tse-gastos-presidencia
-```
-
 ## Limitações
 
 - Os gastos ligados diretamente ao presidente e ao vice são classificados como sigilosos pelo Portal e aparecem só como um valor total, sem detalhes.
